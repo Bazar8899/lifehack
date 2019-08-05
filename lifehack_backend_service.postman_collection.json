@@ -1,0 +1,451 @@
+{
+	"info": {
+		"_postman_id": "f0454cc9-848c-41db-986c-8a662bf47d8c",
+		"name": "lifehack_backend_service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register_device",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"client_id\":\"xo0iZ6Pz8va5Nd097juKY2dkyiBwPmvpuQh1Nhm0\",\n\t\"client_secret\":\"3pZSmhpajYKexMhG1zKmBn24kiQ4Vcs3Qo27WQxlqDi03wgeRnTft1w2AW70XDWzhK3ur5FuDofh3WwyRT2gCkuoF6nUBY096LA2fsKxmVnXWqG2VFhjTzjDaWTZ6OlP\",\n\t\"username\":\"Burentugs\",\n\t\"dob\":\"1998\",\n\t\"gender\":\"1\",\n\t\"device_id\":\"100000200000300000\"\n}"
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/user/device",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"user",
+						"device"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"bazar\",\n\t\"client_id\":\"c0V8Ce1twZ7jGoNC5LRh17l09t46WznlLL4ztpp3\",\n\t\"client_secret\":\"HlRgF3RKse5wYyo9xzCOWq1ot9frPmCmjqXkhW4TTlOdhQSVPlW9yfB0I6Huzq9xF5gt0iQGqAd2GUOX9iIdndpi5c6YVGjbznINkOD3pJsJoPyTX7mAAiILSVwXvrZg\",\n\t\"grant_type\":\"password\",\n\t\"password\":\"Admin1231\"\n}"
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/o/token/",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"o",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "steps by storyid",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "b7db0b7674603dd2b7bfeeffd5918f19466d0d09",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/story/step/list?story_id=3",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"story",
+						"step",
+						"list"
+					],
+					"query": [
+						{
+							"key": "story_id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "story list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "b7db0b7674603dd2b7bfeeffd5918f19466d0d09",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/story/story/list?update_date=2019-08-10T06:56:36.978765Z",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"story",
+						"story",
+						"list"
+					],
+					"query": [
+						{
+							"key": "update_date",
+							"value": "2019-08-10T06:56:36.978765Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "content info",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "b7db0b7674603dd2b7bfeeffd5918f19466d0d09",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/story/content?step_id=1",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"story",
+						"content"
+					],
+					"query": [
+						{
+							"key": "step_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "character info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "b7db0b7674603dd2b7bfeeffd5918f19466d0d09",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/story/characterInfo?character_id=2",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"story",
+						"characterInfo"
+					],
+					"query": [
+						{
+							"key": "character_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "content list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "b7db0b7674603dd2b7bfeeffd5918f19466d0d09",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/story/contentlist",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"story",
+						"contentlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "new user step",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"story_id\": 1,\n\t\"step_id\": 1,\n\t\"user_id\": 1,\n\t\"answer_id\": 10\n}"
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/story/register_user_step?",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"story",
+						"register_user_step"
+					],
+					"query": [
+						{
+							"key": "story_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "step_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user rank",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/story/user_rank",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"story",
+						"user_rank"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user information",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/user/user_info",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"user",
+						"user_info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updoad profile image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "profile_img",
+							"type": "file",
+							"src": "/Users/bazar/Desktop/Screen Shot 2019-07-24 at 11.21.45 PM.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/story/profile_upload",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"story",
+						"profile_upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "introspect",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_answer_choose",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/story/register_answer?story=3&type=2&answer=4&step=40",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"story",
+						"register_answer"
+					],
+					"query": [
+						{
+							"key": "story",
+							"value": "3"
+						},
+						{
+							"key": "type",
+							"value": "2"
+						},
+						{
+							"key": "answer",
+							"value": "4"
+						},
+						{
+							"key": "step",
+							"value": "40"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
